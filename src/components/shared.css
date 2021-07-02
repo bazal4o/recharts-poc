@@ -1,0 +1,24 @@
+.tick-label {
+  display: inline-block;
+  width: 70px;
+  /* padding: 0; */
+  /* //color:#c1c1c1; */
+  /* text-align: right; */
+  font-size: 11px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.tick-label-top {
+  transform: rotate(-80deg);
+  transform-origin: top right;
+}
+.tick-label-bottom {
+  transform: rotate(-80deg);
+  transform-origin: bottom right;
+}
+
+.test {
+  padding:6px
+}
