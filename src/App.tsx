@@ -2,10 +2,11 @@
 import './App.css';
 import ButtonAppBar from './AppBar';
 import ReBarChart from './components/BarChart';
-import HorizontalMultiDimBarChart from './components/HorizontalMultiDimBarChart';
+import HorizontalMultiDimBarChart from './components/HorizontalMultiDimMultiMeasureBarChart';
 import VerticalMultiDimBarChart from './components/VerticalMultiDimBarChart';
 import StackBarHorizontal from './components/StackBarHorizontal';
 import StackBarVertical from './components/StackBarVertical';
+import HorizontalMultiDimSingleMeasureBarChart from './components/HorizontalMultiDimSingleMeasureBarChart';
 import {
   BrowserRouter as Router,
   Switch,
@@ -25,10 +26,10 @@ function App() {
                 <Link to="/">Home</Link>
               </li>
               <li>
-                <Link to="/barchart">BarChart</Link>
-              </li>
+                <Link to="/horizontal-single">Horizontal MultiDim SingleMeasure BarChart</Link>
+              </li>  
               <li>
-                <Link to="/horizontal">Horizontal MultiDim BarChart</Link>
+                <Link to="/horizontal">Horizontal MultiDim Multimeasure BarChart</Link>
               </li>      
               <li>
                 <Link to="/vertical">Vertical MultiDim BarChart</Link>
@@ -50,6 +51,9 @@ function App() {
           </Route>
           <Route path="/horizontal">
             <HorizontalMultiDimBarChart />
+          </Route>
+          <Route path="/horizontal-single">
+            <HorizontalMultiDimSingleMeasureBarChart />
           </Route>
           <Route path="/vertical">
             <VerticalMultiDimBarChart />

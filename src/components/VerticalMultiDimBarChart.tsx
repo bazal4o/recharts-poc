@@ -24,7 +24,6 @@ const CustomXAxisTick = (props: any): JSX.Element => {
   const { x, y, payload, data } = props;
   const tableData = data[payload.index]
   return (
-    <g>
       <foreignObject x={x-100} y={y} width={"200px"} height="100%">
         {/* <span className="tick-label"> Bace are{payload.value}</span> */}
         <Table aria-label="simple table" width={200}>
@@ -39,7 +38,6 @@ const CustomXAxisTick = (props: any): JSX.Element => {
               </TableBody>
             </Table>
       </foreignObject>
-    </g>
   );
 };
 
@@ -50,17 +48,18 @@ const CustomXAxisSpanTick = (props: any): JSX.Element => {
   const tableData = data[payload.index]
   return (
     <g>
-      <foreignObject className="test" x={x-100} y={y} width={"150px"} height="100%">
+      <foreignObject
+        className="test"
+        x={x - 120}
+        y={y}
+        width={"130px"}
+        height="100%"
+      >
         <span className="tick-label tick-label-top">
-          <div>
-          {tableData.county}
-          </div>
-          <div>
-          {tableData.city}
-          </div>
+          <div>{tableData.county}</div>
+          <div>{tableData.city}</div>
         </span>
-        <span className="tick-label tick-label-bottom">{tableData.city}</span>
-
+        {/* <span className="tick-label tick-label-bottom">{tableData.city}</span> */}
       </foreignObject>
     </g>
   );
@@ -116,6 +115,22 @@ class VerticalMultiDimBarChart extends Component<VerticalMultiDimBarChartProps, 
       { name: "d", foo: 15, bar: 8 }
     ];
     const geoDataFlat = [
+      { name: "a", county: "Bulgaria", city: "Sofia",  orders: 1999, sales: 4000 },
+      { name: "b", county: "Bulgaria", city: "Varna",  orders: 4999, sales: 7000  },
+      { name: "c", county: "Bulgaria", city: "Dobrich",  orders: 1000, sales: 2000  },
+      { name: "d", county: "Romania", city: "Bucharest",  orders: 1999, sales: 4000  },
+      { name: "a", county: "Bulgaria", city: "Sofia",  orders: 1999, sales: 4000 },
+      { name: "b", county: "Bulgaria", city: "Varna",  orders: 4999, sales: 7000  },
+      { name: "c", county: "Bulgaria", city: "Dobrich",  orders: 1000, sales: 2000  },
+      { name: "d", county: "Romania", city: "Bucharest",  orders: 1999, sales: 4000  },
+      { name: "a", county: "Bulgaria", city: "Sofia",  orders: 1999, sales: 4000 },
+      { name: "b", county: "Bulgaria", city: "Varna",  orders: 4999, sales: 7000  },
+      { name: "c", county: "Bulgaria", city: "Dobrich",  orders: 1000, sales: 2000  },
+      { name: "d", county: "Romania", city: "Bucharest",  orders: 1999, sales: 4000  },
+      { name: "a", county: "Bulgaria", city: "Sofia",  orders: 1999, sales: 4000 },
+      { name: "b", county: "Bulgaria", city: "Varna",  orders: 4999, sales: 7000  },
+      { name: "c", county: "Bulgaria", city: "Dobrich",  orders: 1000, sales: 2000  },
+      { name: "d", county: "Romania", city: "Bucharest",  orders: 1999, sales: 4000  },
       { name: "a", county: "Bulgaria", city: "Sofia",  orders: 1999, sales: 4000 },
       { name: "b", county: "Bulgaria", city: "Varna",  orders: 4999, sales: 7000  },
       { name: "c", county: "Bulgaria", city: "Dobrich",  orders: 1000, sales: 2000  },
@@ -210,12 +225,7 @@ class VerticalMultiDimBarChart extends Component<VerticalMultiDimBarChartProps, 
             type="category"
             dataKey="name"
             allowDataOverflow={true}
-            // tick={{
-            //   fill: "#c1c1c1",
-            //   fontSize: 12,
-            //   // angle: -35,
-            //   textAnchor: "end",
-            // }}
+
             tick={<CustomXAxisSpanTick data={getFlatBig}/>}
             height={200}
           />
